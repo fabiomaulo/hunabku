@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Interface Name="EntitiesAbstrDI.Data.IDaoFactory">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>IDaoFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EntitiesAbstrDI.Data.IDao&lt;TEntity&gt;">
+    <Position X="0.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IDao.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EntitiesAbstrDI.Data.ICrudDao&lt;TEntity&gt;">
+    <Position X="3" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>ICrudDao.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EntitiesAbstrDI.Data.IInvoiceDao">
+    <Position X="3" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>IInvoiceDao.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EntitiesAbstrDI.Data.IProductDao">
+    <Position X="5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IProductDao.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

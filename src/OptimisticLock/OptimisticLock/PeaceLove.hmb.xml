@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+				   assembly="OptimisticLock"
+				   namespace="OptimisticLock">
+
+	<class name="Sample">
+		<id type="int">
+			<generator class="hilo"/>
+		</id>
+		<version name="Version" access="backfield"/>
+		<property name="Description"/>
+	</class>
+</hibernate-mapping>

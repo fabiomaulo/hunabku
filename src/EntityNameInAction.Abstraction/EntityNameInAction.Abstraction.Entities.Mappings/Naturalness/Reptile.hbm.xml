@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+				   assembly="EntityNameInAction.Abstraction.Entities.Impl"
+				   namespace="EntityNameInAction.Abstraction.Entities.Impl.Naturalness"
+				   default-access="backfield">
+
+	<subclass name="MyReptile" 
+					 proxy="EntityNameInAction.Abstraction.Entities.Naturalness.IReptile, EntityNameInAction.Abstraction.Entities"
+					 extends="Animal"
+					 entity-name="Reptile">
+		<property name="BodyTemperature"/>
+	</subclass>
+	
+</hibernate-mapping>

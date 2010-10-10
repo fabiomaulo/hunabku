@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+				   assembly="OptimisticLock"
+				   namespace="OptimisticLock">
+
+	<class name="SampleDt">
+		<id type="int">
+			<generator class="identity"/>
+		</id>
+		<version name="Version" access="backfield" type="Timestamp" generated="always"/>
+		<property name="Description"/>
+	</class>
+
+	<database-object>
+		<create>
+			<![CDATA[
+CREATE TRIGGER t_sampleInsert ON SampleDt
+INSTEAD OF INSERT
+AS
+BEGIN
+	SET NOCOUNT ON
+
+	INSERT INTO SampleDt (
+		[Version],
+		[Description])
+	SELECT
+		GetDate(),
+		[Description]
+	FROM inserted
+
+	SELECT scope_identity();
+END
+]]>
+		</create>
+		<drop>
+			<![CDATA[
+IF  EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[t_sampleInsert]'))
+DROP TRIGGER [dbo].[t_sampleInsert]
+]]>
+		</drop>
+		<dialect-scope name="NHibernate.Dialect.MsSql2005Dialect"/>
+	</database-object>
+</hibernate-mapping>

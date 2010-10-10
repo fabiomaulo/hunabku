@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+				   assembly="EntityNameInAction.Abstraction.Entities.Impl"
+				   namespace="EntityNameInAction.Abstraction.Entities.Impl.Naturalness"
+				   default-access="backfield">
+
+	<class name="MyAnimal" abstract="true"
+		   proxy="EntityNameInAction.Abstraction.Entities.Naturalness.IAnimal, EntityNameInAction.Abstraction.Entities" 
+		   entity-name="Animal">
+		<id name="id" access="field">
+			<generator class="hilo"/>
+		</id>
+		<discriminator column="kind"/>
+		<property name="Description"/>
+	</class>
+
+</hibernate-mapping>

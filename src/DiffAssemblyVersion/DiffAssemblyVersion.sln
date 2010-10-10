@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiffAssemblyVersion", "DiffAssemblyVersion\DiffAssemblyVersion.csproj", "{A6487BD0-426E-4FC4-8306-51B3C4417C17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Company.Domain", "Company.Domain\Company.Domain.csproj", "{1E330342-A6BE-4695-B5AF-C07E844F1EA5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6487BD0-426E-4FC4-8306-51B3C4417C17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6487BD0-426E-4FC4-8306-51B3C4417C17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6487BD0-426E-4FC4-8306-51B3C4417C17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6487BD0-426E-4FC4-8306-51B3C4417C17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E330342-A6BE-4695-B5AF-C07E844F1EA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E330342-A6BE-4695-B5AF-C07E844F1EA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E330342-A6BE-4695-B5AF-C07E844F1EA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E330342-A6BE-4695-B5AF-C07E844F1EA5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

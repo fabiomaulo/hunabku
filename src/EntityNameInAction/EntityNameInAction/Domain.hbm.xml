@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+				   assembly="EntityNameInAction"
+				   namespace="EntityNameInAction"
+				   default-access="backfield">
+	
+	<class name="Animal">
+		<id name="Id">
+			<generator class="hilo"/>
+		</id>
+		<property name="Description"/>
+		
+		<joined-subclass name="Reptile">
+			<key column="animalId"/>
+			<property name="BodyTemperature"/>
+		</joined-subclass>
+		
+		<joined-subclass name="Human">
+			<key column="animalId"/>
+			<property name="Name"/>
+			<property name="NickName"/>
+			<property name="Birthdate" type="Date"/>
+		</joined-subclass>		
+	</class>
+
+	<class name="Family`1[[Reptile]]" table="ReptilesFamilies" 
+		   entity-name="ReptilesFamily">
+		<id name="Id">
+			<generator class="hilo"/>
+		</id>
+		<many-to-one name="Father" class="Reptile" cascade="all"/>
+		<many-to-one name="Mother" class="Reptile" cascade="all"/>
+		<set name="Childs" generic="true" cascade="all">
+			<key column="familyId" />
+			<one-to-many class="Reptile"/>
+		</set>
+	</class>
+	
+	<class name="Family`1[[Human]]" table="HumanFamilies" 
+		   entity-name="HumanFamily">
+		<id name="Id">
+			<generator class="hilo"/>
+		</id>
+		<many-to-one name="Father" class="Human" cascade="all"/>
+		<many-to-one name="Mother" class="Human" cascade="all"/>
+		<set name="Childs" generic="true" cascade="all">
+			<key column="familyId" />
+			<one-to-many class="Human"/>
+		</set>
+	</class>
+
+</hibernate-mapping>

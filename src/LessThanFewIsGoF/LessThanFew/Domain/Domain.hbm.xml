@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+					   assembly="LessThanFew"
+					   namespace="LessThanFew.Domain">
+
+	<class name="IPerson" discriminator-value="person" abstract="false">
+		<tuplizer class="LessThanFew.EntityTuplizer, LessThanFew" entity-mode="poco"/>
+		<id name="Id">
+			<generator class="hilo"/>
+		</id>
+		<discriminator type="string" force="false"/>
+		<property name="Name"/>
+
+		<many-to-one name="Address" cascade="all" column="addr_id"/>
+
+		<set name="Family" cascade="all" generic="true">
+			<key column="pers_id"/>
+			<one-to-many class="IPerson"/>
+		</set>
+
+		<subclass name="ICustomer" discriminator-value="customer" abstract="false">
+			<tuplizer class="LessThanFew.EntityTuplizer, LessThanFew" entity-mode="poco"/>
+			<many-to-one name="Company" cascade="none" column="comp_id"/>
+		</subclass>
+	</class>
+
+	<class name="ICompany" abstract="false">
+		<tuplizer class="LessThanFew.EntityTuplizer, LessThanFew" entity-mode="poco"/>
+		<id name="Id">
+			<generator class="hilo"/>
+		</id>
+		<property name="Name"/>
+	</class>
+
+	<class name="IAddress" abstract="false">
+		<tuplizer class="LessThanFew.EntityTuplizer, LessThanFew" entity-mode="poco"/>
+		<id name="Id">
+			<generator class="hilo"/>
+		</id>
+		<property name="Street"/>
+		<property name="City"/>
+		<property name="PostalCode"/>
+	</class>
+</hibernate-mapping>

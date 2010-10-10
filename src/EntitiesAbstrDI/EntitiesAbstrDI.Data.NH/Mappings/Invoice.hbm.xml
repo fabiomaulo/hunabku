@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+				   assembly="EntitiesAbstrDI.Domain.Impl"
+				   namespace="EntitiesAbstrDI.Domain.Impl">
+	
+	<class name="Invoice" 
+		   proxy="EntitiesAbstrDI.Domain.IInvoice, EntitiesAbstrDI.Domain"
+		   entity-name="Invoice">
+		<id name="Id">
+			<generator class="hilo"/>
+		</id>
+		<property name="Description"/>
+		<property name="Date" type="Date"/>
+		<property name="Tax"/>
+		<list name="Items" cascade="all">
+			<key column="InvoiceId"/>
+			<list-index column="pos"/>
+			<composite-element class="InvoiceItem">
+				<many-to-one name="Product" entity-name="Product" />
+				<property name="Quantity"/>
+			</composite-element>
+		</list>
+		<query name="LastDayList">
+			from Invoice i where i.Date = sysdate
+		</query>
+	</class>
+
+</hibernate-mapping>
